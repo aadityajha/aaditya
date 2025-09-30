@@ -1,0 +1,28 @@
+/* Global CSS */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:root {
+  --primary-color: #ABC7FF;
+  --secondary-color: #1c1f2b;
+  --text-color: #f0f0f0;
+  --bg-color: #0f111a;
+  --footer-bg: #0f111a;
+  --footer-text: #aaa;
+  --footer-accent: #ABC7FF;
+}

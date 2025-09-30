@@ -1,0 +1,41 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0px 6px rgba(32, 32, 32, 0.071);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* background-color: var(--bg-color); */
+    transition: background-color 0.6s ease, color 0.7s ease;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+
+.logoIcon {
+    width: 30px;
+    height: 30px;
+    color: var(--primary-color);
+}
+
+.iconShadow {
+    filter: drop-shadow(0 0 0.7px rgba(50, 50, 50, 0.887));
+    transition: filter 0.2s;
+}
+
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}

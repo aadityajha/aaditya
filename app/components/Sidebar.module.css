@@ -1,0 +1,115 @@
+/* Container for Sidebar */
+.sidebarContainer {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Hamburger Toggle Button */
+.toggleButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 26px;
+    color: var(--primary-color);
+    transition: transform 0.2s;
+}
+
+.toggleButton:hover {
+    transform: scale(1.05);
+}
+
+/* Icon Styling */
+.icon {
+    color: var(--logo-color);
+}
+
+/* Sidebar Panel */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    /* plain white */
+    /* deep dark gray/blue */
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition: transform 0.5s ease;
+    z-index: 999;
+}
+
+.sidebar.open {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.sidebar.closed {
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+/* Close Button */
+.closeButton {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: var(--toggle-color);
+    transition: transform 0.2s;
+}
+
+.closeButton:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Menu */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Links with Sliding Underline */
+.navLink {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navLink::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ABC7FF;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.navLink:hover {
+    color: var(--hover-text-color);
+}
+
+.navLink:hover::after {
+    transform: scaleX(1);
+}
