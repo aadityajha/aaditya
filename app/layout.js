@@ -43,9 +43,60 @@ export const metadata = {
   },
 };
 
+// --- Schema Objects ---
+const schemaPerson = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Aaditya Jha",
+  url: "https://aaditya-jha.com.np",
+  image: "https://aaditya-jha.com.np/aaditya.jpg",
+  jobTitle: "MBBS Student",
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Chitwan Medical College",
+  },
+  description:
+    "Aaditya Jha is an MBBS student passionate about medicine, innovation, and sharing knowledge.",
+  sameAs: [
+    "https://instagram.com/aadicyte",
+    "https://twitter.com/TheAadityaJha",
+    "https://linkedin.com/in/aadityajha",
+  ],
+};
+
+const schemaWebsite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: "https://aaditya-jha.com.np",
+  name: "Aaditya Jha",
+  description:
+    "Official website of Aaditya Jha — MBBS student passionate about medicine, innovation, and knowledge sharing.",
+  publisher: {
+    "@type": "Person",
+    name: "Aaditya Jha",
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: "https://aaditya-jha.com.np/?s={search_term_string}",
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Person Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson) }}
+        />
+        {/* WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebsite) }}
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* Navbar + Main Content */}
         <Navbar />
@@ -68,28 +119,6 @@ export default function RootLayout({ children }) {
               page_path: window.location.pathname,
             });
           `}
-        </Script>
-
-        {/* Person Schema JSON-LD */}
-        <Script id="person-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Aaditya Jha",
-            "url": "https://aaditya-jha.com.np",
-            "image": "https://aaditya-jha.com.np/aaditya.jpg",
-            "jobTitle": "MBBS Student",
-            "alumniOf": {
-              "@type": "CollegeOrUniversity",
-              "name": "Chitwan Medical College"
-            },
-            "description": "Aaditya Jha is an MBBS student passionate about medicine, innovation, and sharing knowledge.",
-            "sameAs": [
-              "https://instagram.com/aadicyte",
-              "https://twitter.com/TheAadityaJha",
-              "https://linkedin.com/in/aadityajha"
-            ]
-          })}
         </Script>
       </body>
     </html>
