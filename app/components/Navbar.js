@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import Sidebar from "./Sidebar";
+import Link from "next/link";
 
 export default function Navbar() {
     const [mounted, setMounted] = useState(false);
@@ -13,19 +14,18 @@ export default function Navbar() {
 
     return (
         <nav className={styles.navbar}>
-            {/* Logo */}
             {/* Logo Section */}
             <div className={styles.logo}>
-                <a href="/" rel="noopener noreferrer">
+                <Link href="/">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 300.000000 300.000000"
-                        width="300"
-                        height="300"
+                        viewBox="0 0 300 300"
+                        width="50"
+                        height="50"
                         className={styles.logoIcon}
                     >
                         <metadata>
-                            Created by potrace 1.10, written by Peter Selinger 2001-2011
+                            Created by potrace 1.10
                         </metadata>
                         <g transform="translate(0.000000,300.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
                             <path d="M1587 2773 c-20 -43 -73 -154 -118 -248 -45 -93 -105 -219 -134 -280
@@ -64,11 +64,11 @@ m732 85 c-4 -10 -19 -36 -35 -57 -30 -42 -34 -66 -18 -97 13 -23 -2 -26 -20
 
                         </g>
                     </svg>
-                </a>
+                </Link>
             </div>
 
             {/* Sidebar Section */}
             <div className={styles.sidebar}>{mounted && <Sidebar />}</div>
         </nav>
     );
-}
+}``
