@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Client-side components inside layout */}
+        {/* Navbar + Main Content */}
         <Navbar />
         <main style={{ paddingTop: "55px" }}>{children}</main>
         <Footer />
@@ -68,6 +68,28 @@ export default function RootLayout({ children }) {
               page_path: window.location.pathname,
             });
           `}
+        </Script>
+
+        {/* Person Schema JSON-LD */}
+        <Script id="person-schema" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Aaditya Jha",
+            "url": "https://aaditya-jha.com.np",
+            "image": "https://aaditya-jha.com.np/aaditya.jpg",
+            "jobTitle": "MBBS Student",
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Chitwan Medical College"
+            },
+            "description": "Aaditya Jha is an MBBS student passionate about medicine, innovation, and sharing knowledge.",
+            "sameAs": [
+              "https://instagram.com/aadicyte",
+              "https://twitter.com/TheAadityaJha",
+              "https://linkedin.com/in/aadityajha"
+            ]
+          })}
         </Script>
       </body>
     </html>
