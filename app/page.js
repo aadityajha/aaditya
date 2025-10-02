@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./Home.module.css";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
@@ -7,12 +8,20 @@ export default function Home() {
     <main className={styles.hero}>
       {/* Profile Section */}
       <div className={styles.profileContainer}>
-        <img src="/aaditya.jpg" alt="Aaditya Jha" className={styles.profile} />
+        <Image
+          src="/aaditya.jpg"
+          alt="Aaditya Jha"
+          width={300}
+          height={300}
+          className={styles.profile}
+          priority
+        />
       </div>
 
       {/* Name & Title */}
       <h1 className={styles.name}>Aaditya Jha</h1>
-      <p className={styles.subtitle}>MBBS Student | Healthcare & Tech Enthusiast</p>
+      <h2 className={styles.subtitle}>MBBS Student | Healthcare & Tech Enthusiast</h2>
+
 
       {/* Social Icons */}
       <div className={styles.socialIcons}>
@@ -26,8 +35,6 @@ export default function Home() {
           <HiOutlineMail />
         </a>
       </div>
-
-      
     </main>
   );
 }
