@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
@@ -7,13 +8,19 @@ import Script from "next/script";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
-export const metadata = {
-  title: "Aaditya Jha",
+// ---------------- Metadata ----------------
+export const metadata: Metadata = {
+  title: "Aaditya Jha | MBBS Student & Medical Innovator",
   description:
-    "Aaditya Jha — MBBS student passionate about medicine, innovation, and sharing knowledge.",
-  authors: [{ name: "Aaditya Jha" }],
+    "Official website of Aaditya Jha — MBBS student passionate about medicine, innovation, and sharing medical knowledge in Nepal.",
+  keywords: ["Aaditya Jha", "MBBS student", "medical blog", "healthcare", "Nepal"],
+  authors: [{ name: "Aaditya Jha", url: "https://aaditya-jha.com.np" }],
+  metadataBase: new URL("https://aaditya-jha.com.np"),
+  alternates: {
+    canonical: "https://aaditya-jha.com.np",
+  },
   openGraph: {
-    title: "Aaditya Jha",
+    title: "Aaditya Jha | MBBS Student & Medical Innovator",
     description:
       "Explore the personal space of Aaditya Jha — MBBS student focused on medicine, innovation, and healthcare resources.",
     url: "https://aaditya-jha.com.np",
@@ -22,32 +29,40 @@ export const metadata = {
       {
         url: "https://aaditya-jha.com.np/aaditya.jpg",
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: "Aaditya Jha",
       },
     ],
     locale: "en_US",
-    type: "website",
+    type: "profile",
+    profile: {
+      firstName: "Aaditya",
+      lastName: "Jha",
+      username: "aadicyte",
+    },
   },
   twitter: {
     card: "summary_large_image",
     site: "@TheAadityaJha",
-    title: "Aaditya Jha",
+    creator: "@TheAadityaJha",
+    title: "Aaditya Jha | MBBS Student & Medical Innovator",
     description:
       "Aaditya Jha — MBBS student passionate about medicine, innovation, and sharing knowledge.",
-    image: "https://aaditya-jha.com.np/aaditya.jpg",
+    images: ["https://aaditya-jha.com.np/aaditya.jpg"],
   },
-  social: {
-    linkedin: "https://linkedin.com/in/aadityajha",
-    instagram: "https://instagram.com/aadicyte",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
-// --- Schema Objects ---
+// ---------------- Schema.org ----------------
 const schemaPerson = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Aaditya Jha",
+  givenName: "Aaditya",
+  familyName: "Jha",
   url: "https://aaditya-jha.com.np",
   image: "https://aaditya-jha.com.np/aaditya.jpg",
   jobTitle: "MBBS Student",
@@ -74,7 +89,13 @@ const schemaWebsite = {
   publisher: {
     "@type": "Person",
     name: "Aaditya Jha",
+    url: "https://aaditya-jha.com.np",
   },
+  sameAs: [
+    "https://instagram.com/aadicyte",
+    "https://twitter.com/TheAadityaJha",
+    "https://linkedin.com/in/aadityajha",
+  ],
   potentialAction: {
     "@type": "SearchAction",
     target: "https://aaditya-jha.com.np/?s={search_term_string}",
@@ -82,33 +103,81 @@ const schemaWebsite = {
   },
 };
 
-export default function RootLayout({ children }) {
+const schemaWebPage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  url: "https://aaditya-jha.com.np",
+  name: "Aaditya Jha | MBBS Student & Medical Innovator",
+  description:
+    "Official personal website of Aaditya Jha, MBBS student passionate about medicine and innovation.",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://aaditya-jha.com.np/aaditya.jpg",
+    width: 1200,
+    height: 1200,
+  },
+  author: {
+    "@type": "Person",
+    name: "Aaditya Jha",
+    url: "https://aaditya-jha.com.np",
+  },
+};
+
+const schemaBreadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://aaditya-jha.com.np",
+    },
+  ],
+};
+
+// ---------------- Root Layout ----------------
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Person Schema */}
+        {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaPerson) }}
         />
-        {/* WebSite Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebsite) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaWebPage) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaBreadcrumbs) }}
+        />
+
+        {/* Preconnect for performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Navbar + Main Content */}
-        <Navbar />
-        <main style={{ paddingTop: "55px" }}>{children}</main>
-        <Footer />
+        <header>
+          <Navbar />
+        </header>
+        <main role="main" style={{ paddingTop: "55px" }}>
+          {children}
+        </main>
+        <footer>
+          <Footer />
+        </footer>
 
         {/* Google Analytics */}
         <Script
           id="ga-script"
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-RF175Y5JT4"
-          async
         />
         <Script id="ga-init" strategy="afterInteractive">
           {`
