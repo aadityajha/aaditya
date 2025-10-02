@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://aaditya-jha.com.np",
   },
+
+
   openGraph: {
     title: "Aaditya Jha | MBBS Student & Medical Innovator",
     description:
@@ -35,11 +37,6 @@ export const metadata: Metadata = {
     ],
     locale: "en_US",
     type: "profile",
-    profile: {
-      firstName: "Aaditya",
-      lastName: "Jha",
-      username: "aadicyte",
-    },
   },
   twitter: {
     card: "summary_large_image",
