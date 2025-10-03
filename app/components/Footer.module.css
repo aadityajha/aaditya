@@ -1,7 +1,6 @@
 /* Footer.module.css */
 
 .footer {
-    width: 100%;
     color: var(--footer-text, #f0f0f0);
     display: flex;
     flex-direction: column;
