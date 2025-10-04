@@ -1,17 +1,24 @@
+// app/api/robots/route.ts
+
 export async function GET() {
-  // Define the content of robots.txt with disallowed paths for Terms and Privacy Policy
+  const baseUrl = process.env.BASE_URL || "https://aaditya-jha.com.np";
+
   const robotsTxt = `User-agent: *
 Disallow: /api/
 Disallow: /terms
 Disallow: /privacy
 Allow: /ads.txt
-Sitemap: https://aaditya-jha.com.np/sitemap.xml
+
+# Sitemap references for multiple languages
+Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/sitemap-en.xml
+Sitemap: ${baseUrl}/sitemap-ne.xml
+Sitemap: ${baseUrl}/sitemap-de.xml
 `;
 
-  // Return the robots.txt content with the correct Content-Type
   return new Response(robotsTxt, {
     headers: {
-      'Content-Type': 'text/plain',
+      "Content-Type": "text/plain",
     },
   });
 }
