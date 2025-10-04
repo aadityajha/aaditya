@@ -16,7 +16,6 @@ export default function Footer() {
                     data-full-width-responsive="true"
                 ></ins>
             </div>
-
             {/* Footer Links */}
             <div className={styles.links}>
                 <a href="/privacy" className={styles.link}>Privacy</a>
