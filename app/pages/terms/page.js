@@ -2,12 +2,12 @@ import Head from 'next/head';
 
 const TermsOfUse = () => {
   const sectionStyle = { marginBottom: "30px" };
-  const headingStyle = { fontSize: "1.4rem", fontWeight: "600", marginBottom: "10px", color: "#222" };
-  const paragraphStyle = { fontSize: "1rem", lineHeight: "1.6", color: "#444", marginBottom: "8px" };
-  const listStyle = { listStyleType: "disc", marginLeft: "20px", marginTop: "5px", color: "#444", fontSize: "1rem" };
+  const headingStyle = { fontSize: "1.4rem", fontWeight: "600", marginBottom: "10px", };
+  const paragraphStyle = { fontSize: "1rem", lineHeight: "1.6", marginBottom: "8px" };
+  const listStyle = { listStyleType: "disc", marginLeft: "20px", marginTop: "5px", fontSize: "1rem" };
 
   return (
-    <div style={{ fontFamily: 'Poppins, sans-serif', padding: '10px', margin: '0 auto', maxWidth: '1000px' }}>
+    <div style={{ fontFamily: 'Poppins, sans-serif', padding: '30px', margin: '0 auto', maxWidth: '1000px', color: '#b3b2b2ff', }}>
       <Head>
         <title>Terms of Use</title>
         <meta name="description" content="Terms of use for the website." />

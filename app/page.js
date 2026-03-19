@@ -11,8 +11,8 @@ export default function Home() {
         <Image
           src="/aaditya.jpg"
           alt="Aaditya Jha"
-          width={300}
-          height={300}
+          width={200}
+          height={200}
           className={styles.profile}
           priority
         />
@@ -28,7 +28,7 @@ export default function Home() {
         <a href="https://linkedin.com/in/aadityajha" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <FaLinkedin />
         </a>
-        <a href="https://instagram.com/aadicyte" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://instagram.com/iaadityajha" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <FaInstagram />
         </a>
         <a href="mailto:hi@aaditya-jha.com.np" aria-label="Email">

@@ -4,11 +4,11 @@ const PrivacyPolicy = () => {
   return (
     <div style={{
       fontFamily: "'Poppins', sans-serif",
-      padding: '20px',
+      padding: '30px',
       margin: '0 auto',
       maxWidth: '900px',
       lineHeight: '1.6',
-      color: '#1c1c1c',
+      color: '#b3b2b2ff',
     }}>
       <Head>
         <title>Privacy Policy</title>
@@ -16,8 +16,8 @@ const PrivacyPolicy = () => {
       </Head>
 
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: '700', color: '#222' }}>Privacy Policy</h1>
-        <p style={{ fontSize: '1rem', color: '#555', marginTop: '8px' }}>Effective date: September 2025</p>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: '700' }}>Privacy Policy</h1>
+        <p style={{ fontSize: '1rem', marginTop: '8px' }}>Effective date: September 2025</p>
       </header>
 
       {[
@@ -59,10 +59,10 @@ const PrivacyPolicy = () => {
         },
       ].map((section, index) => (
         <section key={index} style={{ marginBottom: '30px' }}>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: '600', marginBottom: '10px', color: '#222' }}>
+          <h2 style={{ fontSize: '1.4rem', fontWeight: '600', marginBottom: '10px' }}>
             {section.title}
           </h2>
-          <p style={{ fontSize: '1rem', color: '#444', margin: 0 }}>{section.content}</p>
+          <p style={{ fontSize: '1rem', margin: 0 }}>{section.content}</p>
         </section>
       ))}
     </div>
