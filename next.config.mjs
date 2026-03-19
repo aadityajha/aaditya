@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
 
-    turbopack: {}, // 🔥 fix for your current error
+    turbopack: {},
 
     images: {
         remotePatterns: [
@@ -24,22 +24,10 @@ const nextConfig = {
 
     async rewrites() {
         return [
-            {
-                source: "/privacy",
-                destination: "/pages/privacy",
-            },
-            {
-                source: "/terms",
-                destination: "/pages/terms",
-            },
-            {
-                source: "/sitemap.xml",
-                destination: "/api/sitemap",
-            },
-            {
-                source: "/robots.txt",
-                destination: "/api/robots",
-            },
+            { source: "/privacy", destination: "/pages/privacy" },
+            { source: "/terms", destination: "/pages/terms" },
+            { source: "/sitemap.xml", destination: "/api/sitemap" },
+            { source: "/robots.txt", destination: "/api/robots" },
         ];
     },
 
@@ -63,4 +51,4 @@ const nextConfig = {
     productionBrowserSourceMaps: false,
 };
 
-module.exports = nextConfig; // 🔥 IMPORTANT FIX
+export default nextConfig;
