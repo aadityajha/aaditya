@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import PageReveal from "../../components/PageReveal";
 import styles from "../inner.module.css";
 
+const siteUrl = "https://aaditya-jha.com.np";
+
 export const metadata: Metadata = {
     title: "About Aaditya Jha — MBBS Student, Nepal",
 
     description:
-        "Learn about Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal, and his academic journey in medicine.",
+        "About Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal, exploring medicine through academic study, clinical learning and community experience.",
 
     keywords: [
         "About Aaditya Jha",
@@ -16,18 +18,21 @@ export const metadata: Metadata = {
         "Aaditya Jha Nepal",
         "Aaditya Jha Chitwan Medical College",
         "Aaditya Jha Tribhuvan University",
+        "Aaditya Jha medical student",
     ],
 
     alternates: {
-        canonical: "https://aaditya-jha.com.np/about",
+        canonical: `${siteUrl}/about`,
     },
 
     openGraph: {
         type: "profile",
-        url: "https://aaditya-jha.com.np/about",
+        locale: "en_NP",
+        url: `${siteUrl}/about`,
+        siteName: "Aaditya Jha",
         title: "About Aaditya Jha — MBBS Student, Nepal",
         description:
-            "Learn about Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+            "About Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
         images: [
             {
                 url: "/aadityajha.jpg",
@@ -36,6 +41,14 @@ export const metadata: Metadata = {
                 alt: "Aaditya Jha",
             },
         ],
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: "About Aaditya Jha — MBBS Student, Nepal",
+        description:
+            "About Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+        images: ["/aadityajha.jpg"],
     },
 };
 
@@ -58,27 +71,38 @@ export default function About() {
                 <div className={styles.two}>
                     <div>
                         <p className={styles.lead}>
-                            I am Aaditya Jha, currently studying MBBS at
-                            Chitwan Medical College, Tribhuvan University.
+                            I am Aaditya Jha, an MBBS student at Chitwan
+                            Medical College, Tribhuvan University, Nepal.
                         </p>
 
                         <p>
-                            Medicine has taught me to look carefully, ask
-                            better questions, and remain curious. My education
-                            combines classroom learning with clinical exposure
-                            and experiences within the community.
+                            My medical education has been a gradual process
+                            of learning how to observe carefully, ask better
+                            questions, and understand the person behind the
+                            clinical presentation.
                         </p>
 
                         <p>
-                            This website is a small record of that journey —
+                            Alongside classroom learning and clinical
+                            exposure, community-based experiences have given
+                            me a different perspective on medicine — one that
+                            begins with listening, observation and understanding
+                            the circumstances in which people live.
+                        </p>
+
+                        <p>
+                            This website is a quiet record of that journey:
                             the academic work, experiences and projects that
-                            have been meaningful along the way.
+                            have shaped my time in medical school.
                         </p>
                     </div>
 
                     <div className={styles.facts}>
                         <span>Education</span>
                         <strong>MBBS</strong>
+
+                        <span>Current Stage</span>
+                        <strong>Third Year</strong>
 
                         <span>Institution</span>
                         <strong>Chitwan Medical College</strong>

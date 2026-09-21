@@ -50,10 +50,10 @@
 .orbit {
     position: absolute;
 
-    width: min(720px, 55vw);
-    height: min(720px, 55vw);
+    width: clamp(430px, 55vw, 820px);
+    aspect-ratio: 1 / 1;
 
-    right: -15vw;
+    right: clamp(-230px, -15vw, -100px);
     top: 50%;
 
     transform: translateY(-50%);
@@ -80,8 +80,10 @@
     width: 100%;
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
-    object-position: center;
+    object-position: center center;
 
     border-radius: 50%;
 
@@ -212,6 +214,7 @@
 
 .titleAccent {
     color: #aaa49a;
+
     font-weight: 400;
 }
 
@@ -235,6 +238,7 @@
 .actions {
     display: flex;
     align-items: center;
+
     gap: 28px;
 
     margin-top: 35px;
@@ -264,6 +268,7 @@
 
 .secondary {
     color: var(--muted);
+
     border-color: var(--line);
 }
 
@@ -307,11 +312,13 @@
 
 .vertical {
     writing-mode: vertical-rl;
+
     transform: rotate(180deg);
 
     color: var(--faint);
 
     font-size: 8px;
+
     letter-spacing: 0.23em;
 }
 
@@ -329,6 +336,7 @@
     color: var(--faint);
 
     font-size: 8px;
+
     letter-spacing: 0.18em;
 
     z-index: 4;
@@ -370,6 +378,7 @@
 
 .statement h2 em {
     color: #aaa49a;
+
     font-style: italic;
 }
 
@@ -383,7 +392,9 @@
     border-bottom: 1px solid var(--line);
 
     font-size: 10px;
+
     letter-spacing: 0.15em;
+
     text-transform: uppercase;
 }
 
@@ -412,6 +423,7 @@
     color: var(--dim);
 
     font-size: 10px;
+
     letter-spacing: 0.14em;
 }
 
@@ -423,6 +435,7 @@
     font-family: var(--serif);
 
     font-size: clamp(58px, 8vw, 110px);
+
     font-weight: 400;
 
     line-height: 0.8;
@@ -432,7 +445,9 @@
 
 .projectTitleAccent {
     color: #aaa49a;
+
     font-weight: 400;
+
     font-style: italic;
 }
 
@@ -448,6 +463,7 @@
     color: var(--muted);
 
     font-size: 14px;
+
     line-height: 1.8;
 }
 
@@ -458,10 +474,9 @@
 
 @media (max-width: 1100px) {
     .orbit {
-        width: 54vw;
-        height: 54vw;
+        width: clamp(400px, 56vw, 650px);
 
-        right: -18vw;
+        right: clamp(-210px, -18vw, -100px);
     }
 
     .copy {
@@ -484,10 +499,9 @@
     }
 
     .orbit {
-        width: 60vw;
-        height: 60vw;
+        width: min(62vw, 570px);
 
-        right: -28vw;
+        right: -10vw;
     }
 
     .projectRow {
@@ -506,7 +520,10 @@
     }
 
     .grid {
-        background-size: 50% 100%, 100% 25%;
+        background-size:
+            50% 100%,
+            100% 25%;
+
         opacity: 0.32;
     }
 
@@ -519,16 +536,30 @@
         font-size: 7px;
     }
 
+    /*
+       FULL PORTRAIT
+
+       The circle is now centered inside the
+       viewport instead of being pushed off-screen.
+    */
+
     .orbit {
-        width: 91vw;
-        height: 91vw;
+        width: min(92vw, 430px);
 
-        top: 25%;
-        right: -51vw;
+        left: 50%;
+        right: auto;
 
-        transform: translateY(0);
+        top: 48%;
 
-        opacity: 0.63;
+        transform: translate(-50%, -50%);
+
+        opacity: 0.42;
+    }
+
+    .orbitImage {
+        object-position: center center;
+
+        opacity: 0.9;
     }
 
     .copy {
@@ -540,7 +571,9 @@
     .title {
         margin: 29px 0 39px;
 
-        font-size: clamp(66px, 22vw, 115px);
+        font-size: clamp(66px,
+                22vw,
+                115px);
 
         line-height: 0.77;
 
@@ -548,9 +581,10 @@
     }
 
     .copy p {
-        width: 310px;
+        width: min(310px, 100%);
 
         font-size: 13px;
+
         line-height: 1.72;
     }
 
@@ -571,6 +605,7 @@
 
     .scroll {
         left: 16px;
+
         bottom: 24px;
     }
 
@@ -584,7 +619,9 @@
     .statement h2 {
         margin: 30px 0 42px;
 
-        font-size: clamp(40px, 11vw, 60px);
+        font-size: clamp(40px,
+                11vw,
+                60px);
 
         line-height: 0.98;
     }
@@ -598,7 +635,9 @@
     }
 
     .projectTitle {
-        font-size: clamp(54px, 15.5vw, 82px);
+        font-size: clamp(54px,
+                15.5vw,
+                82px);
 
         line-height: 0.83;
     }
@@ -624,9 +663,15 @@
 
     .orbit {
         width: 88vw;
-        height: 88vw;
 
-        right: -49vw;
+        left: 50%;
+        right: auto;
+
+        top: 48%;
+
+        transform: translate(-50%, -50%);
+
+        opacity: 0.38;
     }
 
     .title {

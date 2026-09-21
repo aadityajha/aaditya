@@ -1,35 +1,49 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-
 import PageReveal from "../../components/PageReveal";
 import styles from "./projects.module.css";
 
+const siteUrl = "https://aaditya-jha.com.np";
+
 export const metadata: Metadata = {
-    title: "Projects — Aaditya Jha | Medical Student",
-
+    title: "Projects — Aaditya Jha",
     description:
-        "Selected academic and community work by Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University.",
-
+        "Selected academic and community work by Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
     keywords: [
         "Aaditya Jha projects",
-        "Aaditya Jha",
-        "Aditya Jha",
+        "Aditya Jha projects",
         "Aaditya Jha MBBS",
-        "Aaditya Jha medical projects",
+        "Aaditya Jha academic projects",
+        "Aaditya Jha Community Health Diagnosis",
+        "Community Health Diagnosis Nepal",
         "Aaditya Jha Chitwan Medical College",
-        "Community Health Diagnosis Aaditya Jha",
     ],
-
     alternates: {
-        canonical: "https://aaditya-jha.com.np/projects",
+        canonical: `${siteUrl}/projects`,
     },
-
     openGraph: {
         type: "website",
-        url: "https://aaditya-jha.com.np/projects",
-        title: "Projects — Aaditya Jha | Medical Student",
+        locale: "en_NP",
+        url: `${siteUrl}/projects`,
+        siteName: "Aaditya Jha",
+        title: "Projects — Aaditya Jha",
+        description:
+            "Selected academic and community work by Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+        images: [
+            {
+                url: "/aadityajha.jpg",
+                width: 1200,
+                height: 1200,
+                alt: "Aaditya Jha",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Projects — Aaditya Jha",
         description:
             "Selected academic and community work by Aaditya Jha.",
+        images: ["/aadityajha.jpg"],
     },
 };
 
@@ -37,43 +51,63 @@ export default function Projects() {
     return (
         <PageReveal>
             <article className={styles.page}>
-                <header>
+                <header className={styles.header}>
                     <div className="eyebrow">03 / Projects</div>
 
                     <h1 className="display">
-                        Selected
+                        Work worth
                         <br />
-                        <em>academic work.</em>
+                        <em>remembering.</em>
                     </h1>
+
+                    <p className={styles.intro}>
+                        A small collection of academic and community
+                        experiences from medical school.
+                    </p>
                 </header>
 
-                <div className={styles.archive}>
-                    <div className={styles.itemNumber}>
-                        01
+                <div className={styles.rule} />
+
+                <section
+                    className={styles.project}
+                    aria-labelledby="chd-title"
+                >
+                    <div className={styles.projectMeta}>
+                        <span>01</span>
+                        <span>First Year</span>
+                        <span>Community Health</span>
                     </div>
 
-                    <div className={styles.itemContent}>
-                        <div className={styles.itemMeta}>
-                            FIRST YEAR · COMMUNITY HEALTH
-                        </div>
-
-                        <h2 className="display">
+                    <div className={styles.projectContent}>
+                        <h2 id="chd-title" className="display">
                             Community
                             <br />
                             <em>Health Diagnosis</em>
                         </h2>
 
                         <p>
-                            A community-based field study completed during
-                            the first year of MBBS, documenting local health
-                            observations and learning through direct community
-                            exposure.
+                            A first-year community field experience during
+                            MBBS, bringing classroom learning into direct
+                            contact with the community through observation,
+                            communication and structured assessment.
                         </p>
 
-                        <Link href="/projects/chd">
+                        <Link
+                            className={styles.link}
+                            href="/projects/chd"
+                        >
                             View project <span>↗</span>
                         </Link>
                     </div>
+                </section>
+
+                <div className={styles.bottomNote}>
+                    <span className="eyebrow">Academic record</span>
+
+                    <p>
+                        Selected work will be added here as the journey
+                        continues.
+                    </p>
                 </div>
             </article>
         </PageReveal>

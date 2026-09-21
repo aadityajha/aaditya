@@ -6,6 +6,15 @@
     padding: 185px 0 150px;
 }
 
+
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    max-width: 1000px;
+}
+
 .page h1 {
     margin: 38px 0 42px;
 
@@ -14,10 +23,13 @@
     font-size: clamp(70px, 10vw, 135px);
 
     line-height: 0.77;
+
+    letter-spacing: -0.055em;
 }
 
 .page h1 em {
     color: #aaa49a;
+
     font-style: italic;
 }
 
@@ -29,8 +41,14 @@
     color: var(--muted);
 
     font-size: 16px;
+
     line-height: 1.8;
 }
+
+
+/* ==============================
+   PROJECT META
+============================== */
 
 .meta {
     display: grid;
@@ -47,8 +65,29 @@
     color: var(--dim);
 
     font-size: 9px;
+
+    line-height: 1.3;
+
     letter-spacing: 0.16em;
+
     text-transform: uppercase;
+}
+
+.meta span:nth-child(2) {
+    text-align: center;
+}
+
+.meta span:nth-child(3) {
+    text-align: right;
+}
+
+
+/* ==============================
+   EXPERIENCE
+============================== */
+
+.section {
+    display: block;
 }
 
 .body {
@@ -64,11 +103,19 @@
 .body p {
     max-width: 500px;
 
+    margin: 0;
+
     color: var(--muted);
 
     font-size: 15px;
+
     line-height: 1.9;
 }
+
+
+/* ==============================
+   PROJECT NOTE
+============================== */
 
 .note {
     margin-top: 145px;
@@ -85,13 +132,36 @@
 
     color: var(--paper);
 
+    font-family: var(--serif);
+
     font-size: clamp(38px, 5vw, 68px);
 
     line-height: 0.98;
+
+    letter-spacing: -0.035em;
+}
+
+.note p em {
+    color: #aaa49a;
+
+    font-style: italic;
+}
+
+
+/* ==============================
+   FOOTER / BACK
+============================== */
+
+.footer {
+    margin-top: 0;
 }
 
 .back {
     display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
 
     margin-top: 90px;
 
@@ -103,15 +173,50 @@
 
     font-size: 10px;
 
+    line-height: 1;
+
     letter-spacing: 0.14em;
+
     text-transform: uppercase;
 
-    transition: color 0.3s ease;
+    transition:
+        color var(--transition-fast),
+        gap var(--transition);
+}
+
+.back span {
+    transition: transform var(--transition);
 }
 
 .back:hover {
     color: var(--paper);
+
+    gap: 13px;
 }
+
+.back:hover span {
+    transform: translateX(-2px);
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 900px) {
+    .body {
+        gap: 7vw;
+    }
+
+    .note p {
+        max-width: 760px;
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
 
 @media (max-width: 700px) {
     .page {
@@ -124,45 +229,123 @@
         margin: 31px 0 35px;
 
         font-size: clamp(62px, 18vw, 94px);
+
+        line-height: 0.8;
+
+        letter-spacing: -0.05em;
     }
 
     .intro {
+        max-width: 100%;
+
         font-size: 14px;
+
         line-height: 1.8;
     }
 
     .meta {
-        grid-template-columns: 1fr;
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
 
         gap: 13px;
 
         margin: 70px 0 85px;
 
+        padding: 18px 0;
+
         font-size: 8px;
+    }
+
+    .meta span:nth-child(2),
+    .meta span:nth-child(3) {
+        text-align: left;
     }
 
     .body {
         grid-template-columns: 1fr;
 
-        gap: 10px;
+        gap: 24px;
 
         margin-top: 35px;
     }
 
     .body p {
+        max-width: 100%;
+
         font-size: 14px;
+
         line-height: 1.8;
     }
 
     .note {
         margin-top: 100px;
+
+        padding-top: 30px;
     }
 
     .note p {
+        max-width: 100%;
+
+        margin-top: 30px;
+
         font-size: clamp(35px, 10vw, 52px);
+
+        line-height: 1;
+
+        letter-spacing: -0.03em;
     }
 
     .back {
         margin-top: 65px;
+    }
+}
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+@media (max-width: 380px) {
+    .page {
+        width: calc(100% - 28px);
+
+        padding-top: 125px;
+    }
+
+    .page h1 {
+        font-size: 19vw;
+    }
+
+    .intro {
+        font-size: 13.5px;
+    }
+
+    .meta {
+        margin-top: 60px;
+        margin-bottom: 72px;
+    }
+
+    .body p {
+        font-size: 13.5px;
+    }
+
+    .note p {
+        font-size: 9.8vw;
+    }
+}
+
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .back,
+    .back span {
+        transition: none;
     }
 }

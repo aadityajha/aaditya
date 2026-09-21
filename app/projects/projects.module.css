@@ -6,101 +6,231 @@
     padding: 185px 0 150px;
 }
 
-.page h1 {
-    margin: 38px 0 105px;
+
+/* ==============================
+   HEADER
+============================== */
+
+.header {
+    max-width: 900px;
+}
+
+.header h1 {
+    margin: 38px 0 48px;
 
     color: var(--paper);
 
-    font-size: clamp(72px, 10vw, 132px);
+    font-size: clamp(68px, 10vw, 132px);
 
     line-height: 0.78;
+
+    letter-spacing: -0.055em;
 }
 
-.page h1 em {
+.header h1 em {
     color: #aaa49a;
+
     font-style: italic;
 }
 
-.archive {
+.intro {
+    max-width: 510px;
+
+    margin: 0 0 75px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* ==============================
+   RULE
+============================== */
+
+.rule {
+    width: 100%;
+    height: 1px;
+
+    background: var(--line);
+}
+
+
+/* ==============================
+   PROJECT
+============================== */
+
+.project {
     display: grid;
 
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 0.28fr 0.72fr;
 
-    gap: 45px;
+    gap: 8vw;
 
-    padding-top: 32px;
+    padding: 72px 0 95px;
 
-    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line-soft);
 }
 
-.itemNumber {
-    color: var(--dim);
+.projectMeta {
+    display: flex;
+    flex-direction: column;
 
-    font-size: 10px;
-    letter-spacing: 0.14em;
-}
-
-.itemContent {
-    max-width: 850px;
-}
-
-.itemMeta {
-    margin-bottom: 28px;
+    gap: 8px;
 
     color: var(--dim);
 
     font-size: 9px;
+    line-height: 1.3;
+
     letter-spacing: 0.17em;
-}
 
-.itemContent h2 {
-    margin: 0;
-
-    color: var(--paper);
-
-    font-size: clamp(58px, 8vw, 108px);
-
-    line-height: 0.8;
-}
-
-.itemContent h2 em {
-    color: #aaa49a;
-    font-style: italic;
-}
-
-.itemContent p {
-    max-width: 470px;
-
-    margin: 48px 0 31px;
-
-    color: var(--muted);
-
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.itemContent a {
-    display: inline-flex;
-    align-items: center;
-
-    padding-bottom: 9px;
-
-    border-bottom: 1px solid var(--line);
-
-    font-size: 10px;
-    letter-spacing: 0.15em;
     text-transform: uppercase;
 }
 
-.itemContent a span {
-    margin-left: 8px;
+.projectMeta span:first-child {
+    margin-bottom: 22px;
 
-    transition: transform 0.35s var(--ease);
+    color: var(--paper);
+
+    font-family: var(--serif);
+
+    font-size: 28px;
+
+    letter-spacing: 0;
 }
 
-.itemContent a:hover span {
-    transform: translate(4px, -4px);
+
+.projectContent {
+    max-width: 760px;
 }
+
+.projectContent h2 {
+    margin: 0 0 42px;
+
+    color: var(--paper);
+
+    font-size: clamp(54px, 7vw, 96px);
+
+    line-height: 0.84;
+
+    letter-spacing: -0.05em;
+}
+
+.projectContent h2 em {
+    color: #aaa49a;
+
+    font-style: italic;
+}
+
+.projectContent p {
+    max-width: 570px;
+
+    margin: 0 0 32px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+/* ==============================
+   PROJECT LINK
+============================== */
+
+.link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--paper);
+
+    font-size: 11px;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    transition:
+        opacity var(--transition-fast),
+        gap var(--transition);
+}
+
+.link span {
+    font-size: 14px;
+
+    transition: transform var(--transition);
+}
+
+.link:hover {
+    opacity: 0.7;
+
+    gap: 14px;
+}
+
+.link:hover span {
+    transform: translate(2px, -2px);
+}
+
+
+/* ==============================
+   BOTTOM NOTE
+============================== */
+
+.bottomNote {
+    display: grid;
+
+    grid-template-columns: 0.28fr 0.72fr;
+
+    gap: 8vw;
+
+    padding-top: 65px;
+}
+
+.bottomNote p {
+    max-width: 520px;
+
+    margin: 0;
+
+    color: var(--dim);
+
+    font-family: var(--serif);
+
+    font-size: 21px;
+
+    line-height: 1.45;
+
+    letter-spacing: -0.015em;
+}
+
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 900px) {
+
+    .project,
+    .bottomNote {
+        grid-template-columns: 0.22fr 0.78fr;
+
+        gap: 6vw;
+    }
+
+    .projectContent h2 {
+        font-size: clamp(52px, 8vw, 82px);
+    }
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
 
 @media (max-width: 700px) {
     .page {
@@ -109,25 +239,100 @@
         padding: 135px 0 95px;
     }
 
-    .page h1 {
-        margin: 31px 0 75px;
+    .header h1 {
+        margin: 31px 0 42px;
 
-        font-size: clamp(63px, 18vw, 92px);
+        font-size: clamp(62px, 18vw, 92px);
+
+        line-height: 0.8;
     }
 
-    .archive {
-        grid-template-columns: 1fr;
+    .intro {
+        max-width: 100%;
 
-        gap: 25px;
+        margin-bottom: 55px;
+
+        font-size: 14px;
+
+        line-height: 1.8;
     }
 
-    .itemContent h2 {
-        font-size: clamp(55px, 15.5vw, 82px);
+    .project {
+        display: block;
+
+        padding: 52px 0 70px;
     }
 
-    .itemContent p {
-        margin-top: 40px;
+    .projectMeta {
+        flex-direction: row;
 
-        font-size: 13px;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 7px 16px;
+
+        margin-bottom: 40px;
+    }
+
+    .projectMeta span:first-child {
+        width: 100%;
+
+        margin-bottom: 7px;
+
+        font-size: 25px;
+    }
+
+    .projectContent h2 {
+        margin-bottom: 32px;
+
+        font-size: clamp(48px, 14vw, 72px);
+
+        line-height: 0.86;
+    }
+
+    .projectContent p {
+        margin-bottom: 28px;
+
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+    .bottomNote {
+        display: block;
+
+        padding-top: 52px;
+    }
+
+    .bottomNote p {
+        margin-top: 18px;
+
+        font-size: 19px;
+    }
+}
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+@media (max-width: 380px) {
+    .page {
+        width: calc(100% - 28px);
+
+        padding-top: 125px;
+    }
+
+    .header h1 {
+        font-size: 19vw;
+    }
+
+    .projectContent h2 {
+        font-size: 13.5vw;
+    }
+
+    .projectContent p {
+        font-size: 13.5px;
     }
 }

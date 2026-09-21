@@ -6,6 +6,11 @@
     padding: 185px 0 150px;
 }
 
+
+/* ==============================
+   PAGE TITLE
+============================== */
+
 .page h1 {
     margin: 38px 0 75px;
 
@@ -14,12 +19,20 @@
     font-size: clamp(68px, 10vw, 132px);
 
     line-height: 0.78;
+
+    letter-spacing: -0.055em;
 }
 
 .page h1 em {
     color: #aaa49a;
+
     font-style: italic;
 }
+
+
+/* ==============================
+   RULE
+============================== */
 
 .rule {
     width: 100%;
@@ -28,20 +41,30 @@
     background: var(--line);
 }
 
+
+/* ==============================
+   CONTENT GRID
+============================== */
+
 .two {
     display: grid;
 
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
 
     gap: 10vw;
 
     padding-top: 72px;
 }
 
+
+/* ==============================
+   BODY COPY
+============================== */
+
 .two p {
     max-width: 650px;
 
-    margin-bottom: 25px;
+    margin: 0 0 25px;
 
     color: var(--muted);
 
@@ -49,9 +72,17 @@
     line-height: 1.85;
 }
 
+.two p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+   LEAD
+============================== */
+
 .two .lead {
-    margin-top: 0;
-    margin-bottom: 38px;
+    margin: 0 0 38px;
 
     color: var(--paper);
 
@@ -63,15 +94,22 @@
     letter-spacing: -0.025em;
 }
 
+
+/* ==============================
+   FACTS
+============================== */
+
 .facts {
     display: flex;
     flex-direction: column;
 
     align-content: start;
+
+    padding-top: 2px;
 }
 
 .facts span {
-    margin-top: 25px;
+    margin-top: 27px;
 
     color: var(--dim);
 
@@ -79,6 +117,7 @@
     line-height: 1;
 
     letter-spacing: 0.18em;
+
     text-transform: uppercase;
 }
 
@@ -97,6 +136,26 @@
     line-height: 1.5;
 }
 
+
+/* ==============================
+   LINKS INSIDE FACTS
+============================== */
+
+.facts a {
+    display: inline-block;
+
+    transition: opacity var(--transition-fast);
+}
+
+.facts a:hover {
+    opacity: 0.6;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
 @media (max-width: 700px) {
     .page {
         width: calc(100% - 32px);
@@ -110,6 +169,8 @@
         font-size: clamp(62px, 18vw, 92px);
 
         line-height: 0.8;
+
+        letter-spacing: -0.05em;
     }
 
     .two {
@@ -121,11 +182,63 @@
     }
 
     .two .lead {
+        margin-bottom: 32px;
+
         font-size: 23px;
+
+        line-height: 1.38;
     }
 
     .two p {
+        max-width: 100%;
+
+        margin-bottom: 23px;
+
         font-size: 14px;
+
         line-height: 1.8;
+    }
+
+    .facts {
+        padding-top: 0;
+    }
+
+    .facts span {
+        margin-top: 24px;
+    }
+
+    .facts strong {
+        font-size: 14px;
+    }
+}
+
+
+/* ==============================
+   SMALL PHONES
+============================== */
+
+@media (max-width: 380px) {
+    .page {
+        width: calc(100% - 28px);
+
+        padding-top: 125px;
+    }
+
+    .page h1 {
+        font-size: 19vw;
+
+        line-height: 0.81;
+    }
+
+    .two {
+        gap: 55px;
+    }
+
+    .two .lead {
+        font-size: 21px;
+    }
+
+    .two p {
+        font-size: 13.5px;
     }
 }

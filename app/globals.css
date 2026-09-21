@@ -52,17 +52,24 @@
 
 html {
     min-height: 100%;
-    scroll-behavior: smooth;
+
     background: var(--bg);
+
+    scroll-behavior: smooth;
 
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(241, 238, 231, 0.22) transparent;
 }
 
 body {
     min-height: 100vh;
 
     margin: 0;
+
+    overflow-x: hidden;
 
     background: var(--bg);
     color: var(--paper);
@@ -73,8 +80,10 @@ body {
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
 
-    overflow-x: hidden;
+main {
+    min-height: 100vh;
 }
 
 
@@ -91,6 +100,10 @@ svg {
     max-width: 100%;
 }
 
+img {
+    height: auto;
+}
+
 
 /* ==============================
    LINKS
@@ -103,7 +116,7 @@ a {
 
 
 /* ==============================
-   BUTTONS
+   BUTTONS & FORM ELEMENTS
 ============================== */
 
 button,
@@ -115,6 +128,11 @@ select {
 
 button {
     color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -161,7 +179,7 @@ h4 {
 
 
 /* ==============================
-   LAYOUT UTILITIES
+   LAYOUT
 ============================== */
 
 .container {
@@ -190,11 +208,6 @@ h4 {
 /* ==============================
    SCROLLBAR
 ============================== */
-
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(241, 238, 231, 0.22) transparent;
-}
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -235,22 +248,16 @@ html {
 
 
 /* ==============================
-   FOCUS
+   ACCESSIBILITY
 ============================== */
+
+:focus {
+    outline: none;
+}
 
 :focus-visible {
     outline: 1px solid var(--paper);
     outline-offset: 5px;
-}
-
-
-/* ==============================
-   SUBTLE INTERACTION
-============================== */
-
-a,
-button {
-    -webkit-tap-highlight-color: transparent;
 }
 
 

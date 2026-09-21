@@ -4,33 +4,55 @@ import Link from "next/link";
 import PageReveal from "../../../components/PageReveal";
 import styles from "./chb.module.css";
 
+const siteUrl = "https://aaditya-jha.com.np";
+
 export const metadata: Metadata = {
     title: "Community Health Diagnosis — Aaditya Jha",
 
     description:
-        "Community Health Diagnosis project by Aaditya Jha during his MBBS studies at Chitwan Medical College, documenting community-based medical education and field experience.",
+        "Community Health Diagnosis field project by Aaditya Jha during first-year MBBS at Chitwan Medical College, Tribhuvan University, Nepal.",
 
     keywords: [
-        "Community Health Diagnosis",
         "Aaditya Jha Community Health Diagnosis",
+        "Community Health Diagnosis",
         "Aaditya Jha",
+        "Aditya Jha",
         "Aaditya Jha MBBS",
+        "Aaditya Jha Nepal",
         "Aaditya Jha Chitwan Medical College",
+        "Aaditya Jha Tribhuvan University",
         "community health Nepal",
         "MBBS community health project",
     ],
 
     alternates: {
-        canonical:
-            "https://aaditya-jha.com.np/projects/chd",
+        canonical: `${siteUrl}/projects/chd`,
     },
 
     openGraph: {
         type: "article",
-        url: "https://aaditya-jha.com.np/projects/chd",
+        locale: "en_NP",
+        url: `${siteUrl}/projects/chd`,
+        siteName: "Aaditya Jha",
+        title: "Community Health Diagnosis — Aaditya Jha",
+        description:
+            "A first-year Community Health Diagnosis field experience during MBBS at Chitwan Medical College, Tribhuvan University, Nepal.",
+        images: [
+            {
+                url: "/aadityajha.jpg",
+                width: 1200,
+                height: 1200,
+                alt: "Aaditya Jha",
+            },
+        ],
+    },
+
+    twitter: {
+        card: "summary_large_image",
         title: "Community Health Diagnosis — Aaditya Jha",
         description:
             "A first-year community field experience during MBBS at Chitwan Medical College.",
+        images: ["/aadityajha.jpg"],
     },
 };
 
@@ -38,7 +60,7 @@ export default function CHD() {
     return (
         <PageReveal>
             <article className={styles.page}>
-                <header>
+                <header className={styles.header}>
                     <div className="eyebrow">
                         01 · Academic Project
                     </div>
@@ -51,8 +73,8 @@ export default function CHD() {
 
                     <p className={styles.intro}>
                         A first-year community field experience during MBBS —
-                        learning to observe health beyond the hospital and
-                        understand a community in its own context.
+                        an early opportunity to observe health beyond the
+                        hospital and understand a community in its own context.
                     </p>
                 </header>
 
@@ -62,7 +84,7 @@ export default function CHD() {
                     <span>Chitwan Medical College</span>
                 </div>
 
-                <section>
+                <section className={styles.section}>
                     <div className="eyebrow">
                         The experience
                     </div>
@@ -70,11 +92,11 @@ export default function CHD() {
                     <div className={styles.body}>
                         <p>
                             The Community Health Diagnosis visit formed part
-                            of the early medical curriculum. The field
-                            experience brought classroom learning into direct
-                            contact with the community, where observation,
-                            communication and structured assessment became
-                            practical skills.
+                            of the early medical curriculum. It brought
+                            classroom learning into direct contact with the
+                            community, where observation, communication and
+                            structured assessment became practical aspects of
+                            medical education.
                         </p>
 
                         <p>
@@ -92,17 +114,20 @@ export default function CHD() {
                     </div>
 
                     <p className="display">
-                        A documented part of medical education, rather than
-                        a claim of published research.
+                        An early record of learning through
+                        <em> community experience.</em>
                     </p>
                 </section>
 
-                <Link
-                    className={styles.back}
-                    href="/projects"
-                >
-                    ← Back to projects
-                </Link>
+                <div className={styles.footer}>
+                    <Link
+                        className={styles.back}
+                        href="/projects"
+                    >
+                        <span>←</span>
+                        Back to projects
+                    </Link>
+                </div>
             </article>
         </PageReveal>
     );
