@@ -99,8 +99,8 @@ export const metadata: Metadata = {
   ============================== */
 
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: "/favicon.svg",
   },
 
@@ -243,7 +243,7 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang="en" data-scroll-behavior="smooth"
       className={`${geist.variable} ${cormorant.variable}`}
     >
       <body>
