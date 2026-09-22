@@ -1,81 +1,194 @@
 .header {
     position: fixed;
-    top: 0;
+    top: 18px;
     left: 0;
     right: 0;
 
     z-index: 100;
 
-    padding: 22px 0;
-
-    background: linear-gradient(to bottom,
-            rgba(12, 12, 11, 0.88),
-            transparent);
-
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    pointer-events: none;
 }
 
+/* =========================================================
+   GLASS HEADER
+========================================================= */
 .inner {
-    width: min(calc(100% - 48px), 1440px);
+    position: relative;
+    isolation: isolate;
+
+    width: min(calc(100% - 40px), 1320px);
+    height: 48px;
+
     margin: 0 auto;
+    padding: 0 24px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    pointer-events: auto;
+
+    /* Subtle smoked glass */
+    background: rgba(20, 20, 19, 0.24);
+
+    border: none;
+    border-radius: 999px;
+
+    /* EXACTLY 4px */
+    -webkit-backdrop-filter: blur(4px) saturate(150%);
+    backdrop-filter: blur(4px) saturate(150%);
+
+    box-shadow:
+        0 12px 38px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.055);
+
+    overflow: hidden;
 }
 
-/* ==============================
+/*
+   GLASS LIGHT
+*/
+.inner::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(180deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.008));
+}
+
+/*
+   EXTREMELY SUBTLE GOLD GLASS REFLECTION
+*/
+.inner::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 22%;
+    right: 22%;
+
+    height: 1px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(212, 178, 103, 0.38),
+            rgba(255, 226, 165, 0.20),
+            rgba(212, 178, 103, 0.38),
+            transparent);
+
+    opacity: 0.65;
+}
+
+/* =========================================================
    BRAND
-============================== */
+========================================================= */
 
 .brand {
+    position: relative;
+    z-index: 2;
+
     display: inline-flex;
     align-items: center;
 
     color: var(--paper);
 
     font-family: var(--serif);
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 1;
 
+    line-height: 1;
     letter-spacing: -0.07em;
 
     text-decoration: none;
 
-    transition: opacity 0.3s ease;
+    transition:
+        color 0.35s ease,
+        opacity 0.35s ease;
+}
+
+.brand::after {
+    content: "";
+
+    width: 4px;
+    height: 4px;
+
+    margin-left: 5px;
+
+    border-radius: 50%;
+
+    background: #d4b267;
+
+    box-shadow:
+        0 0 7px rgba(212, 178, 103, 0.55),
+        0 0 14px rgba(212, 178, 103, 0.16);
+
+    transform: translateY(6px);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .brand:hover {
-    opacity: 0.65;
+    color: #ead8ad;
 }
 
-/* ==============================
+.brand:hover::after {
+    transform:
+        translateY(6px) scale(1.35);
+
+    box-shadow:
+        0 0 9px rgba(212, 178, 103, 0.75),
+        0 0 18px rgba(212, 178, 103, 0.25);
+}
+
+/* =========================================================
    DESKTOP NAV
-============================== */
+========================================================= */
 
 .desktopNav {
+    position: relative;
+    z-index: 2;
+
     display: flex;
     align-items: center;
-    gap: 32px;
+
+    gap: 30px;
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.17em;
 }
 
 .desktopNav a {
     position: relative;
 
-    color: inherit;
-    text-decoration: none;
+    padding: 8px 0;
 
+    color: inherit;
+
+    text-decoration: none;
     white-space: nowrap;
 
-    transition: color 0.3s ease;
+    transition:
+        color 0.3s ease,
+        opacity 0.3s ease;
 }
 
 .desktopNav a:hover,
@@ -83,54 +196,91 @@
     color: var(--paper);
 }
 
+/* Gold active point */
+
 .desktopNav a::after {
     content: "";
 
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -7px;
 
-    height: 1px;
+    left: 50%;
+    bottom: 0;
 
-    background: currentColor;
+    width: 3px;
+    height: 3px;
 
-    transform: scaleX(0);
-    transform-origin: right;
+    border-radius: 50%;
 
-    transition: transform 0.3s ease;
+    background: #d4b267;
+
+    box-shadow:
+        0 0 7px rgba(212, 178, 103, 0.65);
+
+    transform:
+        translateX(-50%) scale(0);
+
+    transition:
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .desktopNav a:hover::after,
 .desktopNav a.active::after {
-    transform: scaleX(1);
-    transform-origin: left;
+    transform:
+        translateX(-50%) scale(1);
 }
 
-/* ==============================
+/* =========================================================
    INDEX
-============================== */
+========================================================= */
 
 .index {
-    color: var(--muted);
+    position: relative;
+    z-index: 2;
 
-    font-size: 10px;
-    letter-spacing: 0.14em;
+    min-width: 58px;
+
+    color: #8d887f;
+
+    font-size: 9px;
+    letter-spacing: 0.15em;
+
+    text-align: right;
 
     text-decoration: none;
 
     transition: color 0.3s ease;
 }
 
-.index:hover {
-    color: var(--paper);
+.index::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 18px;
+    height: 1px;
+
+    margin-right: 10px;
+
+    vertical-align: middle;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(212, 178, 103, 0.5));
 }
 
-/* ==============================
-   MOBILE BUTTON
-============================== */
+.index:hover {
+    color: #d4b267;
+}
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 
 .menuButton {
+    position: relative;
+    z-index: 2;
+
     display: none;
 
     width: 38px;
@@ -138,7 +288,8 @@
 
     padding: 0;
 
-    border: 0;
+    border: none;
+    border-radius: 999px;
 
     background: transparent;
 
@@ -147,39 +298,47 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+
     gap: 6px;
 }
 
 .menuButton span {
     display: block;
 
-    width: 23px;
+    width: 20px;
     height: 1px;
 
     background: var(--paper);
 
     transition:
         transform 0.35s ease,
-        width 0.35s ease;
+        width 0.35s ease,
+        background 0.3s ease;
 }
 
 .menuButton span:last-child {
-    width: 16px;
+    width: 13px;
+}
+
+.menuButton:hover span {
+    background: #d4b267;
 }
 
 .menuButtonOpen span:first-child {
-    transform: translateY(3.5px) rotate(45deg);
+    transform:
+        translateY(3.5px) rotate(45deg);
 }
 
 .menuButtonOpen span:last-child {
-    width: 23px;
+    width: 20px;
 
-    transform: translateY(-3.5px) rotate(-45deg);
+    transform:
+        translateY(-3.5px) rotate(-45deg);
 }
 
-/* ==============================
+/* =========================================================
    OVERLAY
-============================== */
+========================================================= */
 
 .overlay {
     position: fixed;
@@ -191,12 +350,15 @@
 
     border: 0;
 
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(3, 3, 3, 0.58);
 
     opacity: 0;
     visibility: hidden;
 
     cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     transition:
         opacity 0.45s ease,
@@ -208,36 +370,69 @@
     visibility: visible;
 }
 
-/* ==============================
-   SIDEBAR
-============================== */
+/* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
 
 .sidebar {
     position: fixed;
 
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 14px;
+    right: 14px;
+    bottom: 14px;
 
     z-index: 200;
 
-    width: min(430px, 88vw);
+    width: min(430px, calc(100vw - 28px));
 
     padding: 28px 32px 25px;
 
     display: flex;
     flex-direction: column;
 
-    background: #111110;
+    background:
+        linear-gradient(145deg,
+            rgba(25, 25, 23, 0.88),
+            rgba(10, 10, 9, 0.93));
 
-    border-left: 1px solid var(--line);
+    border: none;
+    border-radius: 32px;
 
-    transform: translateX(100%);
+    backdrop-filter:
+        blur(34px) saturate(140%);
+
+    -webkit-backdrop-filter:
+        blur(34px) saturate(140%);
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
+
+    transform:
+        translateX(calc(100% + 30px));
 
     visibility: hidden;
 
     transition:
         transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sidebar::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 18%;
+    right: 18%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(212, 178, 103, 0.45),
+            transparent);
 }
 
 .sidebarOpen {
@@ -246,23 +441,27 @@
     visibility: visible;
 }
 
-/* ==============================
-   SIDEBAR TOP
-============================== */
+/* =========================================================
+   SIDEBAR HEADER
+========================================================= */
 
 .sidebarTop {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding-bottom: 28px;
+    padding-bottom: 24px;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 
     color: #77736d;
 
     font-size: 9px;
     letter-spacing: 0.2em;
+}
+
+.sidebarTop span {
+    color: #c2a365;
 }
 
 .closeButton {
@@ -275,38 +474,38 @@
     align-items: center;
     justify-content: center;
 
-    border: 1px solid var(--line);
+    border: none;
+    border-radius: 999px;
 
-    background: transparent;
+    background: rgba(255, 255, 255, 0.035);
 
     color: var(--paper);
 
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 200;
-    line-height: 1;
 
     cursor: pointer;
 
     transition:
         background 0.3s ease,
-        border-color 0.3s ease;
+        color 0.3s ease;
 }
 
 .closeButton:hover {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(212, 178, 103, 0.09);
 
-    border-color: #66625d;
+    color: #d4b267;
 }
 
-/* ==============================
+/* =========================================================
    MOBILE NAV
-============================== */
+========================================================= */
 
 .mobileNav {
     display: flex;
     flex-direction: column;
 
-    margin-top: 40px;
+    margin-top: 34px;
 }
 
 .mobileNav a {
@@ -318,7 +517,7 @@
 
     padding: 20px 0;
 
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
 
     color: var(--muted);
 
@@ -343,21 +542,22 @@
     letter-spacing: 0.12em;
 }
 
+.mobileNav a:hover .mobileNumber,
+.mobileNav a.mobileActive .mobileNumber {
+    color: #c5a66c;
+}
+
 .mobileNav a>span:nth-child(2) {
     font-family: var(--serif);
 
     font-size: clamp(30px, 8vw, 46px);
-
     font-weight: 400;
 
     letter-spacing: -0.035em;
-
     line-height: 1;
 }
 
 .mobileArrow {
-    font-family: sans-serif;
-
     color: #66615b;
 
     font-size: 17px;
@@ -369,14 +569,15 @@
 
 .mobileNav a:hover .mobileArrow,
 .mobileNav a.mobileActive .mobileArrow {
-    transform: translate(3px, -3px);
+    transform:
+        translate(3px, -3px);
 
-    color: var(--paper);
+    color: #d4b267;
 }
 
-/* ==============================
-   SIDEBAR BOTTOM
-============================== */
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
 
 .sidebarBottom {
     margin-top: auto;
@@ -392,39 +593,41 @@
     letter-spacing: 0.18em;
 }
 
-/* ==============================
-   TABLET
-============================== */
+.sidebarBottom span:last-child {
+    color: #a88f5d;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (max-width: 900px) {
     .inner {
-        width: calc(100% - 40px);
+        width: calc(100% - 32px);
     }
 
     .desktopNav {
         gap: 23px;
 
-        font-size: 10px;
+        font-size: 9px;
 
         letter-spacing: 0.12em;
     }
-
-    .index {
-        font-size: 9px;
-    }
 }
-
-/* ==============================
-   MOBILE
-============================== */
 
 @media (max-width: 700px) {
     .header {
-        padding: 15px 0;
+        top: 18px;
     }
 
     .inner {
-        width: calc(100% - 28px);
+        width: calc(100% - 24px);
+
+        height: 48px;
+
+        padding: 0 16px;
+
+        border-radius: 999px;
     }
 
     .brand {
@@ -439,15 +642,25 @@
     .menuButton {
         display: flex;
     }
-}
 
-/* ==============================
-   SMALL PHONES
-============================== */
+    .sidebar {
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+
+        width: calc(100vw - 16px);
+
+        padding: 24px 22px 20px;
+
+        border-radius: 28px;
+    }
+}
 
 @media (max-width: 380px) {
     .inner {
-        width: calc(100% - 22px);
+        width: calc(100% - 18px);
+
+        height: 46px;
     }
 
     .brand {
@@ -459,22 +672,12 @@
         height: 34px;
     }
 
-    .menuButton span {
-        width: 21px;
-    }
-
-    .menuButton span:last-child {
-        width: 14px;
-    }
-
     .sidebar {
-        width: 91vw;
-
-        padding: 24px 22px 20px;
+        padding: 22px 20px 18px;
     }
 
     .mobileNav {
-        margin-top: 30px;
+        margin-top: 28px;
     }
 
     .mobileNav a {
@@ -483,10 +686,6 @@
         padding: 18px 0;
     }
 }
-
-/* ==============================
-   REDUCED MOTION
-============================== */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -498,7 +697,9 @@
     .mobileNav a,
     .mobileArrow,
     .brand,
-    .index {
+    .brand::after,
+    .index,
+    .menuButton {
         transition: none;
     }
 }

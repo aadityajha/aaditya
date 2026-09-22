@@ -83,3 +83,18 @@
         gap: 15px;
     }
 }
+
+.name {
+    color: #d4b267;
+
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.name:hover {
+    color: #ead8ad;
+
+    text-shadow:
+        0 0 12px rgba(212, 178, 103, 0.22);
+}

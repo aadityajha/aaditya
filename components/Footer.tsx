@@ -18,7 +18,9 @@ export default function Footer() {
             </div>
 
             <div className={styles.bottom}>
-                <span>© Aaditya Jha</span>
+                <span>
+                    © <span className={styles.name}>Aaditya Jha</span>
+                </span>
 
                 <div className={styles.links}>
                     <Link href="/privacy">

@@ -56,7 +56,7 @@ export default function Contact() {
                 <div className={styles.two}>
                     <div>
                         <p className={styles.lead}>
-                            For a direct message, you can reach Aaditya Jha
+                            For a direct message, you can reach me
                             by email or through the social profiles below.
                         </p>
                     </div>
@@ -66,7 +66,7 @@ export default function Contact() {
 
                         <strong>
                             <a href="mailto:hi@aaditya-jha.com.np">
-                                hi@aaditya-jha.com.np ↗
+                                Email ↗
                             </a>
                         </strong>
 
