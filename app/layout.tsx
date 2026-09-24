@@ -23,7 +23,7 @@ const siteUrl = "https://aaditya-jha.com.np";
 const siteTitle = "Aaditya Jha — MBBS Student in Nepal";
 
 const siteDescription =
-  "Official website of Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal. Explore his academic background, community health work and professional profile.";
+  "Aaditya Jha (आदित्य झा) is an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal. Explore his academic background, projects, community health work and professional profile.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -53,16 +53,35 @@ export const metadata: Metadata = {
 
   category: "personal",
 
+  /*
+   * These support contextual relevance.
+   * Google does NOT use the keywords meta tag
+   * as a primary ranking factor, so the actual
+   * page content and structured data matter more.
+   */
   keywords: [
     "Aaditya Jha",
     "Aditya Jha",
+    "आदित्य झा",
+
     "Aaditya Jha Nepal",
     "Aditya Jha Nepal",
+    "आदित्य झा नेपाल",
+
     "Aaditya Jha MBBS",
     "Aditya Jha MBBS",
+    "आदित्य झा MBBS",
+
     "Aaditya Jha medical student",
+    "Aditya Jha medical student",
+    "आदित्य झा मेडिकल विद्यार्थी",
+
     "Aaditya Jha Chitwan Medical College",
+    "आदित्य झा चितवन मेडिकल कलेज",
+
     "Aaditya Jha Tribhuvan University",
+    "आदित्य झा त्रिभुवन विश्वविद्यालय",
+
     "MBBS student Nepal",
     "medical student Nepal",
     "Chitwan Medical College",
@@ -119,15 +138,14 @@ export const metadata: Metadata = {
 
     title: siteTitle,
 
-    description:
-      "Official website of Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+    description: siteDescription,
 
     images: [
       {
         url: "/aadityajha.jpg",
         width: 1200,
         height: 1200,
-        alt: "Aaditya Jha — MBBS Student in Nepal",
+        alt: "Aaditya Jha (आदित्य झा) — MBBS Student in Nepal",
       },
     ],
   },
@@ -141,8 +159,7 @@ export const metadata: Metadata = {
 
     title: siteTitle,
 
-    description:
-      "Official website of Aaditya Jha, an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+    description: siteDescription,
 
     images: ["/aadityajha.jpg"],
   },
@@ -160,11 +177,20 @@ const personSchema = {
 
   "@id": `${siteUrl}/#person`,
 
+  /*
+   * Primary name
+   */
   name: "Aaditya Jha",
 
+  /*
+   * Alternative spellings / scripts
+   *
+   * This helps establish that these names
+   * refer to the same Person entity.
+   */
   alternateName: [
     "Aditya Jha",
-    "Aaditya Jha Nepal",
+    "आदित्य झा",
   ],
 
   url: siteUrl,
@@ -174,7 +200,7 @@ const personSchema = {
   jobTitle: "MBBS Student",
 
   description:
-    "Aaditya Jha is an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
+    "Aaditya Jha (आदित्य झा) is an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal.",
 
   nationality: {
     "@type": "Country",
@@ -187,16 +213,16 @@ const personSchema = {
     name: "Chitwan Medical College",
 
     url: "https://cmc.edu.np/",
-
-    sameAs: [
-      "https://cmc.edu.np/",
-    ],
   },
 
+  /*
+   * Real profile / identity references only.
+   *
+   * Avoid search-result URLs here.
+   */
   sameAs: [
     "https://www.linkedin.com/in/aadityajha/",
     "https://www.instagram.com/aadi.jha24/",
-    "https://www.facebook.com/search/people/?q=Aaditya%20Jha",
   ],
 };
 
@@ -214,7 +240,10 @@ const websiteSchema = {
 
   name: "Aaditya Jha",
 
-  alternateName: "Aaditya Jha — MBBS Student in Nepal",
+  alternateName: [
+    "Aaditya Jha — MBBS Student in Nepal",
+    "आदित्य झा",
+  ],
 
   url: siteUrl,
 
@@ -227,6 +256,10 @@ const websiteSchema = {
   inLanguage: "en-NP",
 };
 
+
+/* ==============================
+   ROOT LAYOUT
+============================== */
 
 export default function RootLayout({
   children,
@@ -243,7 +276,8 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en" data-scroll-behavior="smooth"
+      lang="en"
+      data-scroll-behavior="smooth"
       className={`${geist.variable} ${cormorant.variable}`}
     >
       <body>
@@ -257,7 +291,7 @@ export default function RootLayout({
 
         {/* ==============================
                     PERSON SCHEMA
-                ============================== */}
+        ============================== */}
 
         <script
           type="application/ld+json"
@@ -268,7 +302,7 @@ export default function RootLayout({
 
         {/* ==============================
                     WEBSITE SCHEMA
-                ============================== */}
+        ============================== */}
 
         <script
           type="application/ld+json"
@@ -279,7 +313,7 @@ export default function RootLayout({
 
         {/* ==============================
                     GOOGLE ADSENSE
-                ============================== */}
+        ============================== */}
 
         <Script
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense}`}
@@ -289,7 +323,7 @@ export default function RootLayout({
 
         {/* ==============================
                     GOOGLE ANALYTICS
-                ============================== */}
+        ============================== */}
 
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${ga}`}
@@ -301,16 +335,16 @@ export default function RootLayout({
           strategy="afterInteractive"
         >
           {`
-                        window.dataLayer = window.dataLayer || [];
+            window.dataLayer = window.dataLayer || [];
 
-                        function gtag() {
-                            dataLayer.push(arguments);
-                        }
+            function gtag() {
+              dataLayer.push(arguments);
+            }
 
-                        gtag('js', new Date());
+            gtag('js', new Date());
 
-                        gtag('config', '${ga}');
-                    `}
+            gtag('config', '${ga}');
+          `}
         </Script>
 
         <Analytics />
