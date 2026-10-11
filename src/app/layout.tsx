@@ -1,26 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-
 import { siteConfig } from "@/lib/site";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
 import "./globals.css";
 
 const siteUrl = siteConfig.url.replace(/\/+$/, "");
-
 const portraitUrl = `${siteUrl}/aadityajha.jpeg`;
 const ogImageUrl = `${siteUrl}/og-image.png`;
 
-// Configure these in your deployment environment.
-const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_ID;
-const googleVerification =
-  process.env.GOOGLE_SITE_VERIFICATION;
+const adsenseId = "ca-pub-6587894583055842";
+const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 const siteTitle = "Aaditya Jha — MBBS Student in Nepal";
 
 const siteDescription =
-  "Aaditya Jha (आदित्य झा), also known as Aditya Jha, is an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal. Explore his academic journey, community health work, projects, and professional profile.";
+  "Aaditya Jha (आदित्य झा), also known as Aditya Jha, is an MBBS student at Chitwan Medical College, Tribhuvan University, Nepal. Explore his academic journey, projects, and professional profile.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -31,7 +26,6 @@ export const metadata: Metadata = {
   },
 
   description: siteDescription,
-
   applicationName: "Aaditya Jha",
 
   authors: [
@@ -43,7 +37,6 @@ export const metadata: Metadata = {
 
   creator: "Aaditya Jha",
   publisher: "Aaditya Jha",
-
   category: "education",
 
   alternates: {
@@ -53,7 +46,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-
     googleBot: {
       index: true,
       follow: true,
@@ -84,7 +76,6 @@ export const metadata: Metadata = {
     siteName: "Aaditya Jha",
     title: siteTitle,
     description: siteDescription,
-
     images: [
       {
         url: ogImageUrl,
@@ -123,19 +114,12 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-
     "@graph": [
       {
         "@type": "Person",
         "@id": `${siteUrl}/#person`,
-
         name: "Aaditya Jha",
-
-        alternateName: [
-          "Aaditya Jha",
-          "आदित्य झा",
-        ],
-
+        alternateName: ["Aditya Jha", "आदित्य झा"],
         url: siteUrl,
 
         image: {
@@ -144,9 +128,7 @@ export default function RootLayout({
         },
 
         jobTitle: "MBBS Student",
-
         description: siteDescription,
-
         email: siteConfig.email,
 
         affiliation: {
@@ -164,29 +146,16 @@ export default function RootLayout({
           .map((item) => item.href.trim())
           .filter(Boolean),
 
-        knowsAbout: [
-          "Medicine",
-          "Medical education",
-          "Community health",
-          "Public health",
-        ],
+        knowsAbout: ["Medicine", "Medical education"],
       },
 
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
-
         url: siteUrl,
-
         name: "Aaditya Jha",
-
-        alternateName: [
-          "Aditya Jha",
-          "आदित्य झा",
-        ],
-
+        alternateName: ["Aditya Jha", "आदित्य झा"],
         description: siteDescription,
-
         inLanguage: "en-NP",
 
         publisher: {
@@ -197,11 +166,8 @@ export default function RootLayout({
       {
         "@type": "ProfilePage",
         "@id": `${siteUrl}/#profilepage`,
-
         url: siteUrl,
-
         name: siteTitle,
-
         description: siteDescription,
 
         mainEntity: {
@@ -217,19 +183,21 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="google-adsense-account"
+          content={adsenseId}
+        />
+      </head>
+
       <body>
-        {/* Structured data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData).replace(
-              /</g,
-              "\\u003c"
-            ),
+            __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
           }}
         />
 
-        {/* Accessibility */}
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
@@ -240,16 +208,13 @@ export default function RootLayout({
 
         <Footer />
 
-        {/* Google AdSense */}
-        {adsenseId && (
-          <Script
-            id="google-adsense"
-            async
-            strategy="afterInteractive"
-            crossOrigin="anonymous"
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
-          />
-        )}
+        <Script
+          id="google-adsense"
+          async
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseId}`}
+        />
       </body>
     </html>
   );
