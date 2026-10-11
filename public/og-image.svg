@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#101d38"/>
+  <circle cx="1050" cy="100" r="320" fill="#235ee8" opacity=".18"/>
+  <circle cx="1050" cy="630" r="300" fill="#c8a45d" opacity=".18"/>
+  <rect x="80" y="80" width="8" height="470" rx="4" fill="#c8a45d"/>
+  <text x="130" y="180" fill="#e6cc8e" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8">PERSONAL PORTFOLIO</text>
+  <text x="125" y="320" fill="#ffffff" font-family="Arial, sans-serif" font-size="94" font-weight="700" letter-spacing="-4">Aditya Jha</text>
+  <text x="132" y="385" fill="#d3d9e5" font-family="Arial, sans-serif" font-size="30">MBBS Student · Community Health · Projects</text>
+  <text x="132" y="510" fill="#e6cc8e" font-family="Arial, sans-serif" font-size="23" letter-spacing="3">MEDICINE, CURIOSITY &amp; MEANINGFUL IMPACT</text>
+  <text x="1080" y="550" fill="#e6cc8e" font-family="Arial, sans-serif" font-size="62" font-weight="700" text-anchor="middle">AJ.</text>
+</svg>

@@ -1,0 +1,116 @@
+.projects-page .page-hero {
+    background: var(--navy);
+    color: var(--white);
+}
+
+.projects-page .page-hero .eyebrow {
+    color: #c4ccda;
+}
+
+.projects-page .page-hero h1 {
+    color: var(--white);
+    animation: projects-heading-enter .7s ease both;
+}
+
+.projects-page .page-hero h1 span {
+    color: var(--gold-light);
+}
+
+.projects-page .page-hero .lead {
+    color: #c4ccda;
+    animation: projects-heading-enter .7s .12s ease both;
+}
+
+.project-page-stats {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    color: #c4ccda;
+    font-size: .82rem;
+    animation: projects-heading-enter .7s .2s ease both;
+}
+
+.project-page-stats span {
+    display: flex;
+    align-items: center;
+    gap: .55rem;
+}
+
+.project-page-stats strong {
+    color: var(--gold-light);
+    font: 800 1.2rem "Manrope", sans-serif;
+    transition: color .25s ease;
+}
+
+.project-page-stats span:hover strong {
+    color: var(--white);
+}
+
+.project-page-stats i {
+    width: 1px;
+    height: 24px;
+    background: #46516a;
+}
+
+.projects-page .project-grid {
+    animation: projects-grid-enter .65s .1s ease both;
+}
+
+.projects-disclaimer {
+    color: var(--muted);
+    font-size: .85rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+    animation: projects-heading-enter .7s .2s ease both;
+}
+
+@keyframes projects-heading-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes projects-grid-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .project-page-stats {
+        gap: .85rem;
+        margin-top: 2rem;
+    }
+
+    .project-page-stats span {
+        gap: .4rem;
+    }
+
+    .project-page-stats strong {
+        font-size: 1.05rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .projects-page *,
+    .projects-page *::before,
+    .projects-page *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

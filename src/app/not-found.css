@@ -1,0 +1,4 @@
+.not-found { min-height: 62vh; display: flex; align-items: center; padding: 5rem 0; background: var(--ivory); }
+.not-found h1 { margin: 1.2rem 0; }
+.not-found h1 span { color: var(--blue); }
+.not-found .button { margin-top: 1.6rem; }

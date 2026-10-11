@@ -1,0 +1,306 @@
+.contact-page .page-hero {
+  background: var(--navy);
+  color: var(--white);
+  animation: contact-hero-enter 0.7s ease both;
+}
+
+.contact-page .page-hero .eyebrow {
+  color: #c4ccda;
+}
+
+.contact-page .page-hero h1 {
+  color: var(--white);
+  animation: contact-content-enter 0.7s ease 0.1s both;
+}
+
+.contact-page .page-hero h1 span {
+  color: var(--gold-light);
+}
+
+.contact-page .page-hero .lead {
+  color: #c4ccda;
+  animation: contact-content-enter 0.7s ease 0.2s both;
+}
+
+.contact-orbit {
+  position: absolute;
+  right: 9%;
+  bottom: -3rem;
+  font-size: clamp(10rem, 22vw, 19rem);
+  color: rgba(200, 164, 93, 0.12);
+  line-height: 1;
+  pointer-events: none;
+  animation: contact-orbit-float 7s ease-in-out infinite;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.contact-main {
+  animation: contact-content-enter 0.7s ease 0.15s both;
+}
+
+.contact-main h2 {
+  margin: 1.2rem 0 0.9rem;
+}
+
+.contact-main>p {
+  max-width: 480px;
+}
+
+.email-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.email-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.email-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  background: var(--navy);
+  color: var(--gold-light);
+  border-radius: 15px;
+  transition: transform 0.25s ease;
+}
+
+.email-card:hover .email-icon {
+  transform: scale(1.06);
+}
+
+.email-copy {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.email-copy small {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.email-copy strong {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  overflow-wrap: anywhere;
+}
+
+.email-copy>span {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.email-arrow {
+  flex-shrink: 0;
+  color: var(--gold);
+  transition: transform 0.25s ease;
+}
+
+.email-card:hover .email-arrow {
+  transform: translate(3px, -3px);
+}
+
+.social-panel {
+  padding: 1.6rem;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  animation: contact-content-enter 0.7s ease 0.3s both;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.social-panel:hover {
+  border-color: rgba(200, 164, 93, 0.65);
+  box-shadow: var(--shadow);
+}
+
+.social-panel h2 {
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+}
+
+.social-panel>p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.social-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  margin-top: 1.3rem;
+  border: 1px dashed #d1c7b0;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.social-placeholder-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.social-placeholder div {
+  display: grid;
+  line-height: 1.4;
+}
+
+.social-placeholder strong {
+  font-size: 0.86rem;
+}
+
+.social-placeholder small {
+  color: var(--muted);
+  font-size: 0.74rem;
+  margin-top: 0.25rem;
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #e0dbd0;
+  font-weight: 700;
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.social-row:hover {
+  color: var(--blue);
+  padding-left: 0.3rem;
+}
+
+.social-row>span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: var(--white);
+  border-radius: 10px;
+  color: var(--blue);
+  transition: transform 0.2s ease;
+}
+
+.social-row:hover>span {
+  transform: translateY(-2px);
+}
+
+.social-row>svg:last-child {
+  margin-left: auto;
+  color: var(--gold);
+  transition: transform 0.2s ease;
+}
+
+.social-row:hover>svg:last-child {
+  transform: translate(2px, -2px);
+}
+
+.contact-bottom {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  align-items: end;
+  gap: 3rem;
+  animation: contact-content-enter 0.7s ease both;
+}
+
+.contact-bottom h2 {
+  margin-top: 1rem;
+  max-width: 560px;
+}
+
+@keyframes contact-hero-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contact-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contact-orbit-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 760px) {
+
+  .contact-layout,
+  .contact-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    gap: 2rem;
+  }
+
+  .contact-orbit {
+    right: 0;
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-page *,
+  .contact-page *::before,
+  .contact-page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
